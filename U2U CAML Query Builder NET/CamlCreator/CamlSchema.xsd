@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<xs:schema id="CamlSchema" 
+                  targetNamespace="http://tempuri.org/CamlSchema.xsd"
+                  elementFormDefault="qualified"
+                  xmlns="http://tempuri.org/CamlSchema.xsd"
+                  xmlns:mstns="http://tempuri.org/CamlSchema.xsd"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:element name="FieldRef">
+		<xs:complexType mixed="true">
+			<xs:sequence></xs:sequence>
+			<xs:attribute name="Name" use="required" type="xs:string"></xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Value">
+				<xs:complexType mixed="true">
+					<xs:sequence></xs:sequence>
+					<xs:attribute name="Type" type="ValueTypeEnum"></xs:attribute>
+				</xs:complexType>
+	</xs:element>
+
+	<xs:simpleType name="CamlOperatorEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration id="Eq" value="Equal" />
+			<xs:enumeration id="Neq" value="Not equal" />
+			<xs:enumeration id="Gt" value="Greater than" />
+			<xs:enumeration id="Geq" value="Greater than or equal" />
+			<xs:enumeration id="Lt" value="Lower than" />
+			<xs:enumeration id="Leq" value="Lower than or equal" />
+			<xs:enumeration id="IsNull" value="Is null" />
+			<xs:enumeration id="IsNotNull" value="Is not null" />
+			<xs:enumeration id="BeginsWith" value="Begins with" />
+			<xs:enumeration id="Contains" value="Contains" />
+			<xs:enumeration id="DateRangesOverlap" value="Date ranges overlap" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CamlCombinerEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="And" />
+			<xs:enumeration value="Or" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ValueTypeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Text" />
+			<xs:enumeration value="DateTime" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FieldTypeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration id="Text" value="Single line of text" />
+			<xs:enumeration id="MultiText" value="Multi lines of Text" />
+			<xs:enumeration id="Choice" value="Choice (menu to choose from)" />
+			<xs:enumeration id="integer" value="Number (1, 1.0, 100)" />
+			<xs:enumeration id="Currency" value="Currency ($, £)" />
+			<xs:enumeration id="DateTime" value="Date and Time" />
+			<xs:enumeration id="Lookup" value="Lookup (Information already on this site)" />
+			<xs:enumeration id="Boolean" value="Yes/No (checkbox)" />
+			<xs:enumeration id="Hyperlink" value="Hyperlink or Picture" />
+			<xs:enumeration id="Calculated" value="Calculated (calculation based on other columns)" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

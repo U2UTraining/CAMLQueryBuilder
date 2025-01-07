@@ -1,0 +1,9 @@
+﻿using (ClientContext ctx = new ClientContext("*SITE*"))
+{
+    Web web = ctx.Web;
+    List list = web.Lists.GetById(new Guid("*LISTID*"));
+    var q = new CamlQuery() { ViewXml = "*CAML*"};
+    var r = list.GetItems(q);
+    ctx.Load(r);
+    ctx.ExecuteQuery();                
+}
