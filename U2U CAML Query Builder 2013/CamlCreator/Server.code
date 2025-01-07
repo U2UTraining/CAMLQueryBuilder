@@ -1,0 +1,8 @@
+﻿SPList list = web.Lists[new Guid("*LISTID*")];
+var q = new SPQuery()
+{
+    Query = @"*WHERE*"
+};
+
+q.ViewFields = @"*VIEWFIELDS*";
+var r = list.GetItems(q);
